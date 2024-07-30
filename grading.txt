@@ -1,0 +1,5 @@
+* Part 1 (100 points)
+  * Spellchecker (40 Points)
+  * Boggle (60 points)
+* Bonus: Ordered Output (15 points)
+100/100

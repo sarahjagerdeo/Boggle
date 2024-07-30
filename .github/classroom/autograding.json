@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "test.sh",
+      "setup": "sudo apt update && sudo apt install valgrind",
+      "run": "timeout 8m ./test.sh",
+      "input": "",
+      "output": "\r\n--- TEST spellcheck ---\r\n pass \t\t Compiles without errors make spellcheck 2>&1\r\n pass \t\t Memory Leaks (no searching)\r\n pass \t\t Memory Errors (no searching)\r\n pass \t\t echo \"these are all words\" | ./spellcheck dictionary.txt\r\n pass \t\t echo \"some of these are asdfasf not words\" | ./spellcheck dictionary.txt\r\n pass \t\t Memory Leaks (with searching)\r\n pass \t\t Memory Errors (with searching)\r\n\r\n--- TEST boggle ---\r\n pass \t\t Compiles without errors make onePlayerBoggle 2>&1 | shasum\r\n pass \t\t Boggle seed 100 (./onePlayerBoggle dictionary.txt 100 | grep -v \"|\" | grep -v \"-\" | sort -d -f | shasum)\r\n pass \t\t Boggle seed 200 (./onePlayerBoggle dictionary.txt 200 | grep -v \"|\" | grep -v \"-\" | sort -d -f | shasum)\r\n pass \t\t Memory Leaks\r\n pass \t\t Memory Errors\r\n\r\n",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
